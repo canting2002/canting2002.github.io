@@ -1,0 +1,38 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 只在 main 分支推送时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # 使用 GitHub 的 Ubuntu 虚拟机环境
+
+    steps:
+      # 第一步：检出代码（含子模块）
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # 确保主题子模块被加载
+          fetch-depth: 0    # 获取完整提交历史
+
+      # 第二步：安装 Hugo 扩展版
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.125.7'  # 指定 Hugo 版本（与你本地一致）
+          extended: true           # 启用扩展功能（某些主题需要）
+
+      # 第三步：构建静态网站
+      - name: Build
+        run: hugo --minify --gc
+
+      # 第四步：部署到 GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # 自动生成的权限令牌
+          publish_dir: ./public                      # 构建输出目录
+          # 如果使用 gh-pages 分支，取消注释下一行：
+          # publish_branch: gh-pages
