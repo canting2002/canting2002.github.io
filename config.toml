@@ -1,0 +1,9 @@
+baseURL = "https://canting2002.github.io/"
+languageCode = "en-us"
+title = "canting plog"
+theme = "ananke"
+
+[[menu.main]]
+  name = "Assignment1"      
+  url = "/reports/assignment1.md"/Users/heixiu/wct.md  
+  weight = 10           
