@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>assignment1</title>
+</head>
+<body>
+  <h1>assignment1</h1>
+  <div><p>#assignment1</p>
+<h1 id="matrix-multiplication-project-report">Matrix Multiplication Project Report</h1>
+<p><strong>Student Name</strong>: wu canting<br>
+<strong>Student ID</strong>: ZY2457B09<br>
+<strong>Submission Date</strong>: 2025/3/26</p>
+<h2 id="system-configuration">System Configuration</h2>
+<p>｜canting｜output｜
+｜————｜————｜
+｜CPU Model｜ Apple M2｜
+｜Memory Size｜ 8 GB｜
+｜Operating System Version｜ 11881.81.4｜
+｜Compiler Version｜ Apple clang version 17.0.0 (clang-1700.0.13.3)｜
+｜Python Version｜ Python 3.13.1｜</p>
+<h2 id="implementation-details">Implementation Details</h2>
+<h3 id="c-language-implementation">C Language Implementation</h3>
+<p>void print_matrix(int matrix[SIZE][SIZE]) {
+for (int i = 0; i &lt; SIZE; i++) {
+for (int j = 0; j &lt; SIZE; j++) {
+printf(&quot;%d\t&quot;, matrix[i][j]);
+}
+printf(&quot;\n&quot;);
+}
+}</p>
+<p>// Function to multiply two matrices
+void multiply_matrices(int A[SIZE][SIZE], int B[SIZE][SIZE], int result[SIZE][SIZE]) {
+for (int i = 0; i &lt; SIZE; i++) {
+for (int j = 0; j &lt; SIZE; j++) {
+result[i][j] = 0;  // Initialize result cell
+for (int k = 0; k &lt; SIZE; k++) {
+result[i][j] += A[i][k] * B[k][j];  // Dot product
+}
+}
+}
+}</p>
+<p>int main() {
+// Define matrices
+int matrixA[SIZE][SIZE] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+int matrixB[SIZE][SIZE] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+int result[SIZE][SIZE];</p>
+<pre><code>// Multiply matrices
+multiply_matrices(matrixA, matrixB, result);
+
+// Print results
+printf(&quot;Matrix A:\n&quot;);
+print_matrix(matrixA);
+
+printf(&quot;\nMatrix B:\n&quot;);
+print_matrix(matrixB);
+
+printf(&quot;\nResult (A × B):\n&quot;);
+print_matrix(result);
+
+return 0;
+</code></pre>
+<p>}</p>
+<h3 id="python-language-implementation">Python Language Implementation</h3>
+<ul>
+<li>
+<p><strong>Source Code</strong>: Include the Python script with comments explaining key sections.
+def multiply_matrices(A, B):
+if not (is_valid_matrix(A) and is_valid_matrix(B)):
+raise ValueError(&ldquo;输入必须是有效矩阵（各行长度一致）&rdquo;)
+if len(A[0]) != len(B):
+raise ValueError(&ldquo;矩阵 A 的列数必须等于矩阵 B 的行数！&rdquo;)</p>
+<p>rows_A, cols_A = len(A), len(A[0])
+rows_B, cols_B = len(B), len(B[0])
+result = [[0 for _ in range(cols_B)] for _ in range(rows_A)]</p>
+<p>for i in range(rows_A):
+for j in range(cols_B):
+for k in range(cols_A):  # 或 len(B)
+result[i][j] += A[i][k] * B[k][j]
+return result</p>
+</li>
+</ul>
+<p>def is_valid_matrix(matrix):
+return all(len(row) == len(matrix[0]) for row in matrix) if matrix else False</p>
+<p>def print_matrix(matrix):
+for row in matrix:
+print(&quot;\t&quot;.join(map(str, row)))</p>
+<p>def main():
+matrix_A = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+matrix_B = [
+[11, 12, 13],
+[21, 22, 23],
+[31, 32, 33]
+]</p>
+<pre><code>try:
+    result = multiply_matrices(matrix_A, matrix_B)
+    print(&quot;Matrix A:&quot;)
+    print_matrix(matrix_A)
+    print(&quot;\nMatrix B:&quot;)
+    print_matrix(matrix_B)
+    print(&quot;\nResult (A × B):&quot;)
+    print_matrix(result)
+except ValueError as e:
+    print(f&quot;错误: {e}&quot;)
+</code></pre>
+<p>if <strong>name</strong> == &ldquo;<strong>main</strong>&rdquo;:
+main()</p>
+<h2 id="algorithm-verification">Algorithm Verification</h2>
+<ul>
+<li><strong>Correctness</strong>:
+def test_random_matrix():
+A = np.random.randint(0, 10, size=(3, 3)).tolist()
+B = np.random.randint(0, 10, size=(3, 3)).tolist()
+C_custom = multiply_matrices(A, B)
+C_ref = np.dot(A, B).tolist()
+assert C_custom == C_ref, &ldquo;结果与 NumPy 不一致&rdquo;</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Markdown offers significant convenience in document writing, as it allows users to quickly generate desired formats by inputting simple syntax code. Additionally, Markdown files are lightweight and can be opened and accessed with ease and speed.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><strong>GeeksforGeeks C language Programming Tutorial</strong>  <a href="https://www.geeksforgeeks.org/c-programming-language/">https://www.geeksforgeeks.org/c-programming-language/</a></li>
+<li><strong>Python Official Documentation (Version 3.x)</strong>   <a href="https://docs.python.org/3/">https://docs.python.org/3/</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<ul>
+<li><strong>Additional Notes</strong>: Include any additional notes or observations made during the project.</li>
+</ul>
+</div>  
+</body>
+</html>

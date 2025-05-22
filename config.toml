@@ -4,6 +4,7 @@ title = "canting plog"
 theme = "ananke"
 
 [[menu.main]]
+  identifier = "assignments" 
   name = "Assignment1"      
-  url = "/reports/assignment1.md"/Users/heixiu/wct.md  
-  weight = 10           
+  url = "/assignments/"
+  weight = 3           

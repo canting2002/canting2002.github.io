@@ -1,3 +1,10 @@
+---
+title: "assignment1"  # 页面标题
+date: 2025-05-22       # 日期
+draft: false           # 设为 false 表示发布状态
+---
+
+#assignment1
 # Matrix Multiplication Project Report
 
 **Student Name**: wu canting  
